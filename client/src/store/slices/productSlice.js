@@ -7,7 +7,7 @@ export const createProduct = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/admin/create-product",
+        "https://ckndr.onrender.com/admin/create-product",
         data,
         {
           headers: {
@@ -30,7 +30,7 @@ export const editProduct = createAsyncThunk(
   async ({ id, data }, { rejectWithValue }) => {
     try {
       const response = await axios.put(
-        `http://localhost:3000/admin/edit-product/${id}`,
+        `https://ckndr.onrender.com/admin/edit-product/${id}`,
         data,
         {
           headers: {
@@ -53,7 +53,7 @@ export const deleteProduct = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/admin/delete-product/${id}`
+        `https://ckndr.onrender.com/admin/delete-product/${id}`
       );
       return response.data;
     } catch (error) {
@@ -70,7 +70,7 @@ export const fetchAllProducts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/admin/fetch-all-products"
+        "https://ckndr.onrender.com/admin/fetch-all-products"
       );
       return response.data;
     } catch (error) {
@@ -87,7 +87,7 @@ export const getProductDetails = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/product/${id}`
+        `https://ckndr.onrender.com/product/${id}`
       );
       return response.data;
     } catch (error) {
