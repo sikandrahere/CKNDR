@@ -10,7 +10,7 @@ const initialState = {
 
   export const addToFavourite = createAsyncThunk("favourite/addToFavourite", async (data, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:3000/favourite/add", data);
+      const response = await axios.post("https://ckndr.onrender.com/favourite/add", data);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || { message: "Failed to add to favourite" });
@@ -19,7 +19,7 @@ const initialState = {
 
   export const fetchFavouriteProducts = createAsyncThunk("favourite/fetchFavouriteProducts", async (userId, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:3000/favourite/get/${userId}`);
+      const response = await axios.get(`https://ckndr.onrender.com/favourite/get/${userId}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || { message: "Failed to fetch favourite products" });
@@ -29,7 +29,7 @@ const initialState = {
 
  export  const deleteFavouriteProduct = createAsyncThunk("favourite/deleteFavouriteProduct", async ({productId, userId}, { rejectWithValue }) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/favourite/delete/${productId}/${userId}`);
+      const response = await axios.delete(`https://ckndr.onrender.com/favourite/delete/${productId}/${userId}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || { message: "Failed to delete favourite product" });
