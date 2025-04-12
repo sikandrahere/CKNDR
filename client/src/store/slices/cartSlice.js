@@ -12,7 +12,7 @@ const initialState = {
 
 export const addToCart = createAsyncThunk("cart/addToCart", async (data, { rejectWithValue }) => {
   try {
-    const response = await axios.post("http://localhost:3000/cart/add", data);
+    const response = await axios.post("https://ckndr.onrender.com/cart/add", data);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response?.data || { message: "Failed to add to cart" });
@@ -21,7 +21,7 @@ export const addToCart = createAsyncThunk("cart/addToCart", async (data, { rejec
 
 export const fetchCartProducts = createAsyncThunk("cart/fetchCartProducts", async (userId, { rejectWithValue }) => {
   try {
-    const response = await axios.get(`http://localhost:3000/cart/get/${userId}`);
+    const response = await axios.get(`https://ckndr.onrender.com/cart/get/${userId}`);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response?.data || { message: "Failed to fetch cart products" });
@@ -29,7 +29,7 @@ export const fetchCartProducts = createAsyncThunk("cart/fetchCartProducts", asyn
 })
 export const editCartProduct = createAsyncThunk("cart/editCartProduct", async (data, { rejectWithValue }) => {
   try {
-    const response = await axios.put("http://localhost:3000/cart/edit", data);
+    const response = await axios.put("https://ckndr.onrender.com/cart/edit", data);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response?.data || { message: "Failed to edit cart product" });
@@ -38,7 +38,7 @@ export const editCartProduct = createAsyncThunk("cart/editCartProduct", async (d
 
 export const deleteCartProduct = createAsyncThunk("cart/deleteCartProduct", async ({ productId, userId }, { rejectWithValue }) => {
   try {
-    const response = await axios.delete(`http://localhost:3000/cart/delete/${productId}/${userId}`);
+    const response = await axios.delete(`https://ckndr.onrender.com/cart/delete/${productId}/${userId}`);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response?.data || { message: "Failed to delete cart product" });
@@ -46,7 +46,7 @@ export const deleteCartProduct = createAsyncThunk("cart/deleteCartProduct", asyn
 })
 export const clearCart = createAsyncThunk("cart/clearCart", async (userId, { rejectWithValue }) => {
   try {
-      const response = await axios.delete(`http://localhost:3000/cart/clear/${userId}`);
+      const response = await axios.delete(`https://ckndr.onrender.com/cart/clear/${userId}`);
       return response.data;
   } catch (error) {
       return rejectWithValue(error.response?.data || { message: "Failed to clear cart" });
