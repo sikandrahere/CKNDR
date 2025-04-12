@@ -19,7 +19,7 @@ const initialState = {
 
   export const createAddress = createAsyncThunk("address/createAddress", async (data, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:3000/address/create", data);
+      const response = await axios.post("https://ckndr.onrender.com/address/create", data);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || { message: "Failed to create address" });
@@ -28,7 +28,7 @@ const initialState = {
 
   export const deleteAddress = createAsyncThunk("address/deleteAddress", async ({addressId, userId}, { rejectWithValue }) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/address/delete/${userId}/${addressId}`);
+      const response = await axios.delete(`https://ckndr.onrender.com/address/delete/${userId}/${addressId}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || { message: "Failed to delete address" });
@@ -37,7 +37,7 @@ const initialState = {
 
   export const editAddress = createAsyncThunk("address/editAddress", async ({userId,addressId,data}, { rejectWithValue }) => {
       try {
-         const response=await axios.put(`http://localhost:3000/address/edit/${userId}/${addressId}`,data);
+         const response=await axios.put(`https://ckndr.onrender.com/address/edit/${userId}/${addressId}`,data);
             return response.data;
 
       } catch (error) {
