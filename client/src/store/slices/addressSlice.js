@@ -9,7 +9,7 @@ const initialState = {
 
   export const fetchAddresses = createAsyncThunk("address/fetchAddresses", async (userId, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:3000/address/get/${userId}`);
+      const response = await axios.get(`https://ckndr-frontend.onrender.com/address/get/${userId}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || { message: "Failed to fetch addresses" });
