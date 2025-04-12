@@ -8,7 +8,7 @@ const initialState = {
 
   export const getAllOrdersByAllusers = createAsyncThunk("order/getAllOrdersByAllusers", async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get("http://localhost:3000/admin-order/get");
+      const response = await axios.get("https://ckndr.onrender.com/admin-order/get");
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || { message: "Failed to fetch orders" });
@@ -17,7 +17,7 @@ const initialState = {
 
   export const fetchOrderDetails = createAsyncThunk("order/fetchOrderDetails", async (orderId, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:3000/admin-order/details/${orderId}`);
+      const response = await axios.get(`https://ckndr.onrender.com/admin-order/details/${orderId}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || { message: "Failed to fetch order details" });
@@ -27,7 +27,7 @@ const initialState = {
   export const updateOrderStatus = createAsyncThunk("order/updateOrderStatus", async (data, { rejectWithValue }) => {
     const { orderId, orderStatus } = data;
     try {
-      const response = await axios.put(`http://localhost:3000/admin-order/update/${orderId}`, { orderStatus });
+      const response = await axios.put(`https://ckndr.onrender.com/admin-order/update/${orderId}`, { orderStatus });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || { message: "Failed to update order status" });
