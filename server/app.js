@@ -21,7 +21,7 @@ app.use(urlencoded({extended:true}))
 app.use(cookieParser())
 app.use(
     cors({
-        origin:process.env.CLIENT_URL || 'https://ckndr-frontend.onrender.com', 
+        origin:'https://ckndr-frontend.onrender.com', 
         credentials: true, 
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         allowedHeaders: ['Content-Type', 'Authorization','Cache-Control','Expires','Pragma'],
