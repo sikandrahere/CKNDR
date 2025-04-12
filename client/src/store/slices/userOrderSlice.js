@@ -10,7 +10,7 @@ const initialState = {
 
  export const createOrder = createAsyncThunk("order/createOrder", async (data, { rejectWithValue }) => {
     try {
-        const response = await axios.post("http://localhost:3000/user-order/create-order", data);
+        const response = await axios.post("https://ckndr.onrender.com/user-order/create-order", data);
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response?.data || { message: "Failed to create order" });
@@ -19,7 +19,7 @@ const initialState = {
 
   export const verifyPayment = createAsyncThunk("order/verifyPayment", async (data, { rejectWithValue }) => {
     try {
-        const response = await axios.post("http://localhost:3000/user-order/verify-order", data);
+        const response = await axios.post("https://ckndr.onrender.com/user-order/verify-order", data);
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response?.data || { message: "Failed to verify payment" });
@@ -28,7 +28,7 @@ const initialState = {
 
   export const getAllOrdersByUser = createAsyncThunk("order/getAllOrdersByUser", async (userId, { rejectWithValue }) => {
     try {
-        const response = await axios.get(`http://localhost:3000/user-order/list/${userId}`);
+        const response = await axios.get(`https://ckndr.onrender.com/user-order/list/${userId}`);
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response?.data || { message: "Failed to fetch orders" });  
