@@ -7,7 +7,7 @@ export const createUser = createAsyncThunk(
     "auth/createUser",
     async (formData, { rejectWithValue }) => {
       try {
-        const response = await axios.post("http://localhost:3000/user/register", formData, {
+        const response = await axios.post("https://ckndr.onrender.com/user/register", formData, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -26,7 +26,7 @@ export const loginUser = createAsyncThunk(
     async (credentials, { rejectWithValue }) => {
       try {
         const response = await axios.post(
-          "http://localhost:3000/user/login",
+          "https://ckndr.onrender.com/user/login",
           credentials,
           {
             headers: {
@@ -46,7 +46,7 @@ export const loginUser = createAsyncThunk(
 export const logoutUser = createAsyncThunk("auth/logoutUser", async (_, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/user/logout",
+        "https://ckndr.onrender.com/user/logout",
         {},
         {
           withCredentials: true, // Ensures cookies are sent and deleted
@@ -60,7 +60,7 @@ export const logoutUser = createAsyncThunk("auth/logoutUser", async (_, { reject
 
   export const fetchUser = createAsyncThunk("auth/fetchUser", async (userId, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:3000/user/profile`, {
+      const response = await axios.get(`https://ckndr.onrender.com/user/profile`, {
         withCredentials: true, 
       });
       return response.data;
